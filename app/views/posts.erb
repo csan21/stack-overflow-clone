@@ -1,0 +1,5 @@
+<% @posts.each do |post| %>
+
+<a href="/categories/<%= @category_id %>/posts/<%= post.id %>"><%= post.title %></a>
+
+<% end %>
