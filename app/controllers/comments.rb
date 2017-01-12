@@ -1,10 +1,10 @@
-get '/posts/:id/comments/new' do
-  @post - Post.find_by(params[:id])
+get '/posts/:post_id/comments/new' do
+  @post - Post.find_by(params[:post_id])
   erb :'/posts/#{@post.id}'
 end
 
-post '/posts/:id/comments' do
-  @post = Post.find_by(params[:id])
+post '/posts/:post_id/comments' do
+  @post = Post.find_by(params[:post_id])
   @comment = Comment.new(params[:comment])
   if @comment.save
     if request.xhr?
@@ -15,9 +15,9 @@ post '/posts/:id/comments' do
     redirect '/posts/#{@post.id}'
 end
 
-put '/posts/:post_id/comments/:id' do
+put '/posts/:post_id/comments/:comment_id' do
   @post = Post.find_by(params[:post_id])
-  @comment = Comment.find_by(params[:id])
+  @comment = Comment.find_by(params[:comment_id])
   if request.xhr?
     @comment.update_attributes(params[:comment])
     erb :_comments
@@ -27,9 +27,9 @@ put '/posts/:post_id/comments/:id' do
   end
 end
 
-delete '/posts/:post_id/comments/:id' do
+delete '/posts/:post_id/comments/:comment_id' do
   @post = Post.find_by(params[:post_id])
-  @comment = Comment.find_by(params[:id])
+  @comment = Comment.find_by(params[:comment_id])
   if request.xhr?
     @comment.destroy
     erb :_comments
