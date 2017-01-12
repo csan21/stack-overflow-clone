@@ -1,0 +1,15 @@
+<h3>Login</h3>
+
+	<% if @errors %>
+		<% @errors.each do |error| %>
+		<p style="color: red;"><%= error %></p>
+		<% end %>
+	<% end %>
+
+<form id="user-new" action="/sessions" method="POST">
+	<b>Username:<b>
+	<input type="text" name="user[username]" placeholder="username">
+	<b>Password:</b>
+	<input type="password" name="user[password]" placeholder="password">
+	<input type="submit" value="Login">
+</form>
