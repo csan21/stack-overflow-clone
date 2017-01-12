@@ -1,0 +1,10 @@
+<% @posts.each do |post| %>
+
+  <a href="/categories/<%= @category_id %>/posts/<%= post.id %>"><%= post.title %></a>
+
+  <% if current_user.id == post.author_id %>
+    <a href="categories/<%= @category_id %>/posts/<%= post.id %>/edit">Edit</a>
+  <% end %>
+
+<% end %>
+
