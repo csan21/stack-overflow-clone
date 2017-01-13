@@ -40,7 +40,9 @@ navbar {
   font-size: 25px;
 }
 
-
+.username-layout {
+  float: right;
+}
 
 #question {
   font-size: 20px;
@@ -48,8 +50,22 @@ navbar {
   color: #212121 !important;
 }
 
+#username-title {
+  font-size: 16px;
+  padding-right: 10px;
+  color: #212121 !important;
+}
+
+#logout-form {
+  display: inline;
+}
+
 #question a:hover {
   text-decoration: none !important;
+}
+
+.pipeline {
+  padding-right: 15px;
 }
 
 .votes-home {
