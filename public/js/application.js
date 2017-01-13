@@ -1,7 +1,15 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(document).on("click",".container .dropdown .dropdown-menu li a", function(event){
+    event.preventDefault();
+    var id = $(this).attr("href");
+    var lang = $(this).text();
+    $.ajax({
+      method: "post",
+      url: "/categories",
+      data: {id: id, language: lang}
+    })
+    .done(function(response){
+      $(".container").replaceWith(response)
+    });
+  })
 });
