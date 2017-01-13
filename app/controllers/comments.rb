@@ -13,6 +13,7 @@ post '/posts/:post_id/comments' do
   else
     @errors = @comment.errors.full_messages
     redirect '/posts/#{@post.id}'
+  end
 end
 
 get '/posts/:post_id/comments/:comment_id/edit' do
@@ -22,6 +23,7 @@ get '/posts/:post_id/comments/:comment_id/edit' do
     erb :_comments
   else
     redirect '/posts/#{@post.id}/comments/#{@comment.id}'
+  end
 end
 
 put '/posts/:post_id/comments/:comment_id' do
