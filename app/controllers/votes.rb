@@ -9,3 +9,7 @@ post '/categories/:category_id/posts/:post_id/comments/:comment_id/votes' do
 
   redirect "/categories/#{params[:category_id]}/posts/#{params[:post_id]}"
 end
+
+post '/login' do
+  redirect "/sessions/new"
+end
