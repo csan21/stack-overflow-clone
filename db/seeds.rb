@@ -79,7 +79,7 @@ Post.create(title: "Is there a CSS parent selector?", post_body: "How do I selec
 end
 
 100.times do
-  Comment.create(post_id: randvote, comment_body: Faker::Hipster.sentence)
+  Comment.create(post_id: randvote, commenter_id: randnum, comment_body: Faker::Hipster.sentence)
 end
 
 500.times do
