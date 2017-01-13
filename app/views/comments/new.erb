@@ -1,0 +1,8 @@
+<h3>Add a comment</h3>
+
+<% erb :_errors %>
+
+<form action="/posts/<%= @post.id %>/comments" method="POST">
+  <input type="textarea" name="comment[comment_body]" placeholder="Comment here">
+  <input type="submit">
+</form>

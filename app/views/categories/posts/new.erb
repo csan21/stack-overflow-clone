@@ -1,22 +1,14 @@
-<% if @errors %>
-  <span>We've got a problem:</span>
-  <ul class="error-list pad-b-2">
-    <% @errors.each do |error| %>
-      <li class="error-item"><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<h3>Create new post</h3>
+
+<% erb :_errors %>
 
 <div class="container">
-  <h1>Create new post</h1>
-  <form method="post" action="/categories/<%= @category_id %>/posts">
+  <form action="/categories/<%= @category_id %>/posts" method="POST">
   Title:
   <input type="text" name="post[title]"><br>
-  Description
+  Question:
   <input type="textarea" name="post[post_body]"><br>
   <input type="hidden" name="post[author_id]" value="<%= current_user.id %>">
-  Email:
-  <input type="text" name="article[email]"><p>
   <input type="submit"><br>
   </form>
 </div>
