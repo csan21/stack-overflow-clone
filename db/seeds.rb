@@ -38,21 +38,21 @@ createUser("kheer1", "password")
 createUser("D-Maher", "password")
 
 Category.create(name: "AJAX") #1
-Category.create(name: "Angular") #1
-Category.create(name: "CSS") #2
-Category.create(name: "C++") #3
-Category.create(name: "C#") #4
-Category.create(name: "HTML") #5
-Category.create(name: "Java") #6
-Category.create(name: "Javascript") #7
-Category.create(name: "Node.js") #8
-Category.create(name: "PHP") #9
-Category.create(name: "Python") #10
-Category.create(name: "React") #11
-Category.create(name: "Ruby") #12
-Category.create(name: "Ruby on Rails") #13
-Category.create(name: "SQL") #14
-Category.create(name: "Swift") #15
+Category.create(name: "Angular") #2
+Category.create(name: "CSS") #3
+Category.create(name: "C++") #4
+Category.create(name: "C#") #5
+Category.create(name: "HTML") #6
+Category.create(name: "Java") #7
+Category.create(name: "Javascript") #8
+Category.create(name: "Node.js") #9
+Category.create(name: "PHP") #10
+Category.create(name: "Python") #11
+Category.create(name: "React") #12
+Category.create(name: "Ruby") #13
+Category.create(name: "Ruby on Rails") #14
+Category.create(name: "SQL") #15
+Category.create(name: "Swift") #16
 
 Post.create(title: "How to write a switch statement in Ruby", post_body: "How do I write a switch statement in Ruby?", category_id: 12, author_id: randnum)
 
