@@ -60,6 +60,11 @@ navbar {
   display: inline;
 }
 
+#profile-form {
+  display: inline;
+}
+
+
 #question a:hover {
   text-decoration: none !important;
 }
