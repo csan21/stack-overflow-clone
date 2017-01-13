@@ -1,5 +1,5 @@
 get '/posts/:post_id/comments/new' do
-  @post - Post.find_by(id: params[:post_id])
+  @post = Post.find_by(id: params[:post_id])
   erb :'/posts/#{@post.id}'
 end
 

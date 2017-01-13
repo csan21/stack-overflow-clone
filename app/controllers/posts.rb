@@ -1,11 +1,22 @@
-get 'categories/:category_id/posts' do
+get '/categories/:category_id/posts' do
   @posts = Post.all
   @category_id = params[:category_id]
+
   erb :'categories/posts/index'
 end
 
-get 'categories/:category_id/posts/new' do
+get '/categories/:category_id/posts/new' do
+  @post = Post.find_by(id: params[:post_id])
+  @category = Category.find_by(id: params[:category_id])
+
   erb :'categories/posts/new'
+end
+
+get '/categories/:category_id/posts/:post_id' do
+  @post = Post.find_by(id: params[:post_id])
+  @category = Category.find_by(id: params[:category_id])
+
+  erb :'categories/posts/show'
 end
 
 post '/categories/:category_id/posts' do
@@ -24,7 +35,7 @@ put '/categories/:category_id/posts/:post_id' do
   redirect "/categories/#{@post.category_id}/posts/#{@post.id}"
 end
 
-delete 'categories/:category_id/posts/:post_id' do
+delete '/categories/:category_id/posts/:post_id' do
   if request.xhr?
   else
 
@@ -37,7 +48,7 @@ delete 'categories/:category_id/posts/:post_id' do
   end
 end
 
-get 'categories/:category_id/posts/:post_id/edit' do
+get '/categories/:category_id/posts/:post_id/edit' do
   @post = Post.find_by(id: params[:post_id])
   @category = Category.find_by(id: params[:category_id])
   erb :'categories/posts/edit'
