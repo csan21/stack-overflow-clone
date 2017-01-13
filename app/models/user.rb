@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :posts
-  has_many :comments
-  has_many :votes
+	has_many :posts
+	has_many :comments
+	has_many :votes
 
-  validates :username, presence: true, uniqueness: true
+	validates :username, presence: true, uniqueness: true
 
 	def password
 		@password ||= BCrypt::Password.new(hashed_password)
@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
 
 	def self.authenticate(username, password)
 		if self.password == password && self.username == username
-    	return User.find_by(username: username)
-  	else
-    	return false
-  	end
+			return User.find_by(username: username)
+		else
+			return false
+		end
 	end
 end

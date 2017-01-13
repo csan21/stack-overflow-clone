@@ -1,11 +1,11 @@
 get "/sessions/new" do
-	erb :"/users/session"
+  erb :"/users/session"
 end
 
 post "/sessions" do
-	@user = User.authenticate(params[:user][:email], params[:user][:password])
+  @user = User.authenticate(params[:user][:email], params[:user][:password])
 	if @user
-		set_user(@user)
+    set_user(@user)
 		redirect "/"
 	else
 		@errors = "Username/Password is incorrect."
@@ -16,4 +16,4 @@ end
 delete "/sessions" do
 	session.delete(:user_id)
 	redirect "/"
-end 
+end
