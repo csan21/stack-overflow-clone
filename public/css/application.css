@@ -2,7 +2,7 @@
   margin: 50px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+
   display: block;
 }
 th {
@@ -30,34 +30,28 @@ navbar {
   border-radius: 10px;
 }
 
-#go {
-  color: #4B515D;
+#dbc {
+  color: #2E2E2E;
   font-size: 20px;
 }
 
-#fund {
-  color: #00C851;
+#overflow {
+  color: #FF8800;
   font-size: 25px;
 }
 
-#me {
-  font-size: 20px;
-  color: #ffbb33;
-}
 
-#fundraiser {
+
+#question {
   font-size: 20px;
   padding-right: 10px;
-  color: #00C851 !important;
+  color: #212121 !important;
 }
 
-#fundraiser a:hover {
+#question a:hover {
   text-decoration: none !important;
 }
 
-body {
-  background-color: #f5f5dc !important;
-}
 
 .form-group, .col-form-label {
   display: inline-block;
