@@ -4,6 +4,7 @@
 
 <h3><%= @post.votes.where(upvote?: true).count - @post.votes.where(upvote?: false).count %></h3>
 
+
 <% if @post.votes.find_by(voter_id: current_user.id) == nil %>
 
   <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
