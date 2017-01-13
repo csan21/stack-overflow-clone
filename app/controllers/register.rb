@@ -3,13 +3,13 @@ get "/users/new" do
 end
 
 post "/users" do
-  @user = User.new(params[:users])
+  @user = User.new(username: params[:user][:username], password: params[:user][:password])
   if @user.valid?
     @user.save
     set_user(@user)
     redirect '/'
   else
     @errors = @user.errors.full_messages
-    erb :"/user/new"
+    erb :"/users/new"
   end
 end
