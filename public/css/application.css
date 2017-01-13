@@ -52,6 +52,24 @@ navbar {
   text-decoration: none !important;
 }
 
+.votes-home {
+  display: inline;
+}
+
+.votes-home-text {
+  font-size: 9px;
+  display: inline-block;
+}
+
+.answers-home {
+  display: inline;
+}
+
+.answers-home-text {
+  font-size: 9px;
+  display: inline-block;
+}
+
 
 .form-group, .col-form-label {
   display: inline-block;
@@ -61,21 +79,34 @@ navbar {
   width: 200px;
 }
 
-#login {
+.questions-home {
+    height: 40px;
+    font-size: 15px;
+}
 
+.questions-title {
+  font-size: 18px;
+}
+
+.questions-title a {
+  text-decoration: none;
+  color: #0d47a1 !important;
+}
+.questions-title a:hover {
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 15px;
+}
+
+.post-date-home {
+  font-size: 9px;
+  font-weight: bold;
 }
 
 * {
   font-family: 'Montserrat', sans-serif;
 }
 
-@media only screen and (max-width: 600px) {
-  navbar {
-    height: 100px;
-    width: 300px;
-    text-align: center;
-  }
-}
 
 div.well{
   height: 250px;
@@ -93,4 +124,34 @@ div.well{
   min-width: 200px;
   max-width: 400px;
   padding: 40px;
+}
+
+.filters {
+  width: 200px;
+  display: inline;
+  float: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+  navbar {
+    height: 100px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .row {
+    padding-bottom: 15px;
+  }
+
+  #question {
+    padding-right: 24px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .questions-home {
+    padding-bottom: 75px;
+  }
+
 }
