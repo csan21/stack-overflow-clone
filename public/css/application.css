@@ -1,9 +1,102 @@
 .container {
-  margin: 20px auto;
+  margin: 50px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  display: block;
 }
 th {
   text-align: left;
+}
+
+form label, form input {
+  display: block;
+  text-align: center
+  margin: auto;
+}
+
+navbar a:hover, navbar a, navbar a:focus {
+  text-decoration: none !important;
+}
+navbar {
+  display: block;
+  margin: auto;
+  width: 65%;
+  background-color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+#go {
+  color: #4B515D;
+  font-size: 20px;
+}
+
+#fund {
+  color: #00C851;
+  font-size: 25px;
+}
+
+#me {
+  font-size: 20px;
+  color: #ffbb33;
+}
+
+#fundraiser {
+  font-size: 20px;
+  padding-right: 10px;
+  color: #00C851 !important;
+}
+
+#fundraiser a:hover {
+  text-decoration: none !important;
+}
+
+body {
+  background-color: #f5f5dc !important;
+}
+
+.form-group, .col-form-label {
+  display: inline-block;
+}
+
+#username-login, #password-login {
+  width: 200px;
+}
+
+#login {
+
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  navbar {
+    height: 100px;
+    width: 300px;
+    text-align: center;
+  }
+}
+
+div.well{
+  height: 250px;
+}
+
+.Absolute-Center {
+  margin: 180px auto auto auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
 }
