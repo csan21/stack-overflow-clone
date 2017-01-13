@@ -7,7 +7,7 @@ post "/sessions" do
 	@user.authenticate(params[:user][:username], params[:user][:password])
 	if @user
 		set_user(@user)
-		erb :index
+		redirect '/'
 	else
 		@errors = ["Username/Password is incorrect."]
 		erb :"/sessions/new"

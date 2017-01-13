@@ -20,18 +20,36 @@ application.css is where you put your styles
 </head>
 
 <body>
-  <navbar>
-    <a href="/"><span id="dbc">dbc</span><span id="overflow">overflow</span>
-    <div class="dropdown pull-right">
-      <a href="/"><span id="question">ask a question</span></a>
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-      </button>
 
-      <ul class="dropdown-menu">
-        <li><a href="/users/new">Register</li></a>
-        <li><a href="/sessions/new">Login</li></a>
+
+
+  <navbar>
+
+      <a href="/"><span id="dbc">dbc</span><span id="overflow">overflow</span>
+
+      <div class="dropdown pull-right">
+        <a href="/"><span id="question">ask a question</span></a>
+        <span class="pipeline"> | </span>
+        <% if logged_in? %>
+          <div class="username-layout">
+          <span id="username-title">welcome, <%= current_user.username %></span>
+              <form action="/"
+              <button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-user"></span></button>
+              <form action="/sessions" method="post" id="logout-form">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-log-out"></span></button>
+              </form>
+          </div>
+          <% else %>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+          </button>
+
+        <ul class="dropdown-menu">
+          <li><a href="/users/new">Register</li></a>
+          <li><a href="/sessions/new">Login</li></a>
         </ul>
+        <% end %>
       </div>
     </navbar>
     <%= yield %>
