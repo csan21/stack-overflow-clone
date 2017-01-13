@@ -14,23 +14,28 @@ def randvotable
   ["Post", "Comment"].sample
 end
 
-User.create(username: "mhar-andal", password: "password")
-User.create(username: "csan21", password: "password")
-User.create(username: "nickdevlin", password: "password")
-User.create(username: "mikejtaylor", password: "password")
-User.create(username: "SaVanceX", password: "password")
-User.create(username: "Brandv", password: "password")
-User.create(username: "PatrickJamesHoban", password: "password")
-User.create(username: "DMiller0090", password: "password")
-User.create(username: "rrichardsonv", password: "password")
-User.create(username: "yangashley", password: "password")
-User.create(username: "Hesham-Elrehaimy", password: "password")
-User.create(username: "Karyatis", password: "password")
-User.create(username: "JHallberg5100", password: "password")
-User.create(username: "Robertgervais1", password: "password")
-User.create(username: "JHallberg5100", password: "password")
-User.create(username: "kheer1", password: "password")
-User.create(username: "D-Maher", password: "password")
+def createUser(username, hashed_password)
+  @user = User.new(username: username, password: hashed_password)
+  @user.save
+end
+
+createUser("mhar-andal", "password")
+createUser("csan21", "password")
+createUser("nickdevlin", "password")
+createUser("mikejtaylor", "password")
+createUser("SaVanceX", "password")
+createUser("Brandv", "password")
+createUser("PatrickJamesHoban", "password")
+createUser("DMiller0090", "password")
+createUser("rrichardsonv", "password")
+createUser("yangashley", "password")
+createUser("Hesham-Elrehaimy", "password")
+createUser("Karyatis", "password")
+createUser("JHallberg5100", "password")
+createUser("Robertgervais1", "password")
+createUser("JHallberg5100", "password")
+createUser("kheer1", "password")
+createUser("D-Maher", "password")
 
 Category.create(name: "AJAX") #1
 Category.create(name: "Angular") #1

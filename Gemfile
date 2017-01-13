@@ -18,7 +18,7 @@ gem 'rake'
 
 gem 'pry'
 
-gem 'bcrypt'
+gem 'bcrypt-ruby'
 
 gem 'shotgun'
 

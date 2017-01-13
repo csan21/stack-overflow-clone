@@ -3,7 +3,8 @@ get "/sessions/new" do
 end
 
 post "/sessions" do
-	@user = User.authenticate(params[:user][:username], params[:user][:password])
+  @user = User.find_by(username: params[:user][:username])
+	@user.authenticate(params[:user][:username], params[:user][:password])
 	if @user
 		set_user(@user)
 		erb :index
