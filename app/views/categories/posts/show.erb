@@ -7,7 +7,7 @@
 <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
   <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
   <input type="hidden" name="vote[votable_type]" value="Post"><br>
-  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id %>"><br>
+  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
   <input type="hidden" name="vote[upvote?]" value=true><br>
   <input type="submit" value="Up"><br>
 </form>
@@ -15,7 +15,7 @@
 <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
   <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
   <input type="hidden" name="vote[votable_type]" value="Post"><br>
-  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id %>"><br>
+  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
   <input type="hidden" name="vote[upvote?]" value=false><br>
   <input type="submit" value="Down"><br>
   </form>
@@ -27,7 +27,7 @@
   <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
     <input type="hidden" name="vote[votable_id]" value="<%= comment.id %>"><br>
     <input type="hidden" name="vote[votable_type]" value="Comment"><br>
-    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id %>"><br>
+    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
     <input type="hidden" name="vote[upvote?]" value=true><br>
     <input type="submit" value="Up"><br>
   </form>
@@ -35,7 +35,7 @@
   <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
     <input type="hidden" name="vote[votable_id]" value="<%= comment.id %>"><br>
     <input type="hidden" name="vote[votable_type]" value="Comment"><br>
-    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id %>"><br>
+    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
     <input type="hidden" name="vote[upvote?]" value=false><br>
     <input type="submit" value="Down"><br>
   </form>
