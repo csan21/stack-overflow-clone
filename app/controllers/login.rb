@@ -3,12 +3,12 @@ get "/sessions/new" do
 end
 
 post "/sessions" do
-  @user = User.authenticate(params[:user][:email], params[:user][:password])
+	@user = User.authenticate(params[:user][:username], params[:user][:password])
 	if @user
-    set_user(@user)
-		redirect "/"
+		set_user(@user)
+		erb :index
 	else
-		@errors = "Username/Password is incorrect."
+		@errors = ["Username/Password is incorrect."]
 		erb :"/sessions/new"
 	end
 end
