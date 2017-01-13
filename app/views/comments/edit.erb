@@ -1,0 +1,9 @@
+<h3>Edit your comment</h3>
+
+<% erb :_errors %>
+
+<form action="/posts/<%= @post.id %>/comments/<%= @comment.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="textarea" name="comment[comment_body]" value="<%= @post.post_body %>">
+  <input type="submit">
+</form>

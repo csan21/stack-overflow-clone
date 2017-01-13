@@ -8,6 +8,6 @@ helpers do
   end
 
   def set_user(user)
-      session[:user_id] = user.id
+    session[:user_id] = user.id
   end
 end
