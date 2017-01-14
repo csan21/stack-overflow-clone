@@ -1,1 +1,39 @@
-<h1>HELLO, <%= @user.username %> </h1> 
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills">
+      <li id="profile-tab" role="presentation" class="active" data-toggle="tab"><a href="/profile/<%= @user.id %>">Profile</a></li>
+      <li id="activity-tab" role="presentation" data-toggle="tab"><a href="/profile/<%= @user.id %>/activity">Activity</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <h1 id="profile-username"> <%= @user.username %> </h1>
+  </div>
+  <div class="row">&nbsp;</div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row" id="profile-tab">
+      <div class="col-md-2 questions-profile">
+        <%= @posts.count %>
+        <span class="small-font">asked</span>
+
+      </div>
+      <div class="col-md-2 questions-profile">
+        <%= @comments.count %>
+        <span class="small-font">answered</span>
+      </div>
+      <div class="col-md-2 questions-profile">
+        <%= @totalupvotes %>
+        <span class="small-font">upvotes</span>
+      </div>
+      <div class="col-md-2 questions-profile">
+        <%= @totaldownvotes %>
+        <span class="small-font">downvotes</span>
+      </div>
+      <div class="col-md-2 questions-profile">
+        <%= @user.profile_views %>
+        <span class="small-font">profile views</span>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
