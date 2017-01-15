@@ -30,6 +30,10 @@ navbar {
   border-radius: 10px;
 }
 
+#vote-count-post {
+  text-align: center;
+}
+
 #dbc {
   color: #2E2E2E;
   font-size: 20px;

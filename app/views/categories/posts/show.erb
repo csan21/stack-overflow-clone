@@ -1,25 +1,43 @@
-<h1><%= @post.title %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12"><h1><%= @post.title %></h1></div>
+  </div>
+  <div class="row">
+    <div class="col-md-1" id="vote-post">
+      <form id="upvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
+        <center><button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-triangle-top"></span></button></center>
+        <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>">
+        <input type="hidden" name="vote[votable_type]" value="Post">
+        <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>">
+        <input type="hidden" name="vote[upvote?]" value=true>
+      </form>
 
-<h2><%= @post.post_body %></h2>
+      <h4 id="vote-count-post"><%= @post.votes.where(upvote?: true).count - @post.votes.where(upvote?: false).count %></h4>
 
+      <form id="downvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
+        <center><button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-triangle-bottom"></span></button></center>
+        <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>">
+        <input type="hidden" name="vote[votable_type]" value="Post">
+        <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>">
+        <input type="hidden" name="vote[upvote?]" value=false>
+      </form>
+    </div>
+    <div class="col-md-11"><%= @post.post_body %></div>
+  </div>
 
-<div id="vote-post">
-  <form id="upvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
-    <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
-    <input type="hidden" name="vote[votable_type]" value="Post"><br>
-    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
-    <input type="hidden" name="vote[upvote?]" value=true><br>
-    <input type="submit" value="Up"><br>
-  </form>
-    <h3><%= @post.votes.where(upvote?: true).count - @post.votes.where(upvote?: false).count %></h3>
-  <form id="downvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
-    <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
-    <input type="hidden" name="vote[votable_type]" value="Post"><br>
-    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
-    <input type="hidden" name="vote[upvote?]" value=false><br>
-    <input type="submit" value="Down"><br>
-    </form>
+  <div class="row">
+    <div class="col-md-9">&nbsp;</div>
+    <div class="col-md-3">asked by <%= @post.author.username %></div>
+  </div>
+
+<div class="row">
+  <div class="col-xs-12"><hr></div>
 </div>
+
+
+
+
+
 
 <div id="vote-comment">
 
@@ -44,4 +62,5 @@
 
 <% end %>
 
+</div>
 </div>
