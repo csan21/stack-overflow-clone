@@ -1,7 +1,12 @@
 get '/' do
   @posts = Post.all.reverse
   @current_lang = "Language"
-  erb :index
+  erb :index, layout: :layout_update
+end
+
+post '/' do
+  @posts = Post.all.reverse
+  erb :'_index_live', layout: false
 end
 
 post '/categories' do
