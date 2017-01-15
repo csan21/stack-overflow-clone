@@ -21,8 +21,10 @@
     </form>
 </div>
 
+<div id="vote-comment">
+
 <% @post.comments.each do |comment| %>
-<%= comment.comment_body %><br>
+<p><%= comment.comment_body %></p><br>
 
   <form id="upvote-comment" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
     <input type="hidden" name="vote[votable_id]" value="<%= comment.id %>"><br>
@@ -41,3 +43,5 @@
   </form>
 
 <% end %>
+
+</div>
