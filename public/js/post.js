@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $(document).on('submit', 'form #upvote-post', function(event) {
+  $(document).on('submit', '#upvote-post', function(event) {
     event.preventDefault();
     var action = $(this).attr('action');
     var method = $(this).attr('method');
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
 	});
 
-  $(document).on('submit', 'form #downvote-post', function(event) {
+  $(document).on('submit', '#downvote-post', function(event) {
     event.preventDefault();
     var action = $(this).attr('action');
     var method = $(this).attr('method');
