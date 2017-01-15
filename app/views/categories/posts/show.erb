@@ -2,29 +2,31 @@
 
 <h2><%= @post.post_body %></h2>
 
-<h3>Rating: <%= @post.votes.where(upvote?: true).count - @post.votes.where(upvote?: false).count %></h3>
 
-<form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
-  <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
-  <input type="hidden" name="vote[votable_type]" value="Post"><br>
-  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
-  <input type="hidden" name="vote[upvote?]" value=true><br>
-  <input type="submit" value="Up"><br>
-</form>
-
-<form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
-  <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
-  <input type="hidden" name="vote[votable_type]" value="Post"><br>
-  <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
-  <input type="hidden" name="vote[upvote?]" value=false><br>
-  <input type="submit" value="Down"><br>
+<div id="vote-post">
+  <form id="upvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
+    <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
+    <input type="hidden" name="vote[votable_type]" value="Post"><br>
+    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
+    <input type="hidden" name="vote[upvote?]" value=true><br>
+    <input type="submit" value="Up"><br>
   </form>
-<br><br>
+    <h3><%= @post.votes.where(upvote?: true).count - @post.votes.where(upvote?: false).count %></h3>
+  <form id="downvote-post" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/votes" method="POST">
+    <input type="hidden" name="vote[votable_id]" value="<%= @post.id %>"><br>
+    <input type="hidden" name="vote[votable_type]" value="Post"><br>
+    <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
+    <input type="hidden" name="vote[upvote?]" value=false><br>
+    <input type="submit" value="Down"><br>
+    </form>
+</div>
+
+<div id="vote-comment">
 
 <% @post.comments.each do |comment| %>
-<%= comment.comment_body %><br>
+<p><%= comment.comment_body %></p><br>
 
-  <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
+  <form id="upvote-comment" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
     <input type="hidden" name="vote[votable_id]" value="<%= comment.id %>"><br>
     <input type="hidden" name="vote[votable_type]" value="Comment"><br>
     <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
@@ -32,7 +34,7 @@
     <input type="submit" value="Up"><br>
   </form>
   <h4><%= comment.votes.where(upvote?: true).count - comment.votes.where(upvote?: false).count %></h4>
-  <form action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
+  <form id="downvote-comment" action="/categories/<%= @category.id %>/posts/<%= @post.id %>/comments/<%= comment.id %>/votes" method="POST">
     <input type="hidden" name="vote[votable_id]" value="<%= comment.id %>"><br>
     <input type="hidden" name="vote[votable_type]" value="Comment"><br>
     <input type="hidden" name="vote[voter_id]" value="<%= current_user.id unless !logged_in? %>"><br>
@@ -41,3 +43,5 @@
   </form>
 
 <% end %>
+
+</div>
