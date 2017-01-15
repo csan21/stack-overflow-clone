@@ -30,7 +30,7 @@ navbar {
   border-radius: 10px;
 }
 
-#vote-count-post {
+#vote-count-post, .vote-count-comment {
   text-align: center;
 }
 

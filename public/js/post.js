@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     .done(function(response) {
       $("#vote-count-post").replaceWith(response);
-
+      console.log(response)
     });
 
 	});
@@ -50,8 +50,8 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h4").replaceWith(response);
-
+      $("#comment-" + response.id ).replaceWith(response.response);
+      console.log(response.response)
     });
 
 	});
@@ -69,8 +69,8 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h4").replaceWith(response);
-
+      $("#comment-" + response.id ).replaceWith(response.response);
+      console.log(response.response)
     });
 
 	});

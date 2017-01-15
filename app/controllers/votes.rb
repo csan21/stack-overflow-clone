@@ -25,7 +25,9 @@ post '/categories/:category_id/posts/:post_id/comments/:comment_id/votes' do
   end
 
   if request.xhr?
-    return "<h4>#{(@comment.votes.where(upvote?: true).count - @comment.votes.where(upvote?: false).count).to_s}</h4>"
+    @comment = Comment.find_by(id: params[:comment_id])
+    content_type :json
+    {response: "#{erb :'/comments/_comment_vote_count', layout: false}", id: @comment.id}.to_json
   else
     redirect "/categories/#{params[:category_id]}/posts/#{params[:post_id]}"
   end
