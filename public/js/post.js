@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $('#upvote-post').on('submit', function(event) {
+  $(document).on('submit', 'form #upvote-post', function(event) {
     event.preventDefault();
     var action = $(this).attr('action');
     var method = $(this).attr('method');
@@ -13,13 +13,13 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h3").replaceWith(response);
-
+      $("#vote-count-post").replaceWith(response);
+      console.log(response)
     });
 
 	});
 
-  $('#downvote-post').on('submit', function(event) {
+  $(document).on('submit', 'form #downvote-post', function(event) {
     event.preventDefault();
     var action = $(this).attr('action');
     var method = $(this).attr('method');
@@ -32,8 +32,7 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h3").replaceWith(response);
-
+      $("#vote-count-post").replaceWith(response);
     });
 
 	});
@@ -51,8 +50,8 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h4").replaceWith(response);
-
+      $("#comment-" + response.id ).replaceWith(response.response);
+      console.log(response.response)
     });
 
 	});
@@ -70,8 +69,8 @@ $(document).ready(function() {
     })
 
     .done(function(response) {
-      $("h4").replaceWith(response);
-
+      $("#comment-" + response.id ).replaceWith(response.response);
+      console.log(response.response)
     });
 
 	});

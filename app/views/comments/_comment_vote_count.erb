@@ -1,0 +1,1 @@
+<h4 class="vote-count-comment" id="comment-<%= @comment.id %>"><%= @comment.votes.where(upvote?: true).count - @comment.votes.where(upvote?: false).count %></h4>
