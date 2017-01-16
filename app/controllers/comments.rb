@@ -6,13 +6,16 @@ end
 post '/posts/:post_id/comments' do
   @post = Post.find_by(id: params[:post_id])
   @comment = Comment.new(params[:comment])
+  @category_id = params[:category_id]
   if @comment.save
     if request.xhr?
-      erb :_comments
+      erb :"/categories/posts/show"
+    else
+      redirect "/posts/#{@post.id}"
     end
   else
     @errors = @comment.errors.full_messages
-    redirect '/posts/#{@post.id}'
+    redirect "/posts/#{@post.id}"
   end
 end
 

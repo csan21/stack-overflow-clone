@@ -35,10 +35,6 @@
 </div>
 
 
-
-
-
-
 <% @post.comments.each do |comment| %>
 <div class="row">
 <div class="col-sm-1">&nbsp;</div>
@@ -67,3 +63,20 @@
   <div class="col-xs-12"><hr></div>
 </div>
 <% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Add a comment</h3>
+
+    <% erb :_errors %>
+
+    <form id="comment-form" action="/posts/<%= @post.id %>/comments" method="POST">
+    <div class="comment-box">
+      <textarea form="comment-form" id="comment-body" name="comment[comment_body]" placeholder="Comment here" rows="3"></textarea>
+    </div>
+      <input type="hidden" name="comment[commenter_id]" value="<%= current_user.id %>">
+      <input type="submit">
+    </form>
+  </div>
+</div>
+</div>

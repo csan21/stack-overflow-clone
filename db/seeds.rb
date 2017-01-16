@@ -82,6 +82,6 @@ end
   Comment.create(post_id: randvote, commenter_id: randnum, comment_body: Faker::Hipster.sentence)
 end
 
-500.times do
-  Vote.create(votable_id: randnum, votable_type: randvotable, voter_id: randnum, upvote?: truefalse)
-end
+# 500.times do
+#   Vote.create(votable_id: randnum, votable_type: randvotable, voter_id: randnum, upvote?: truefalse)
+# end

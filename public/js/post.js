@@ -75,6 +75,23 @@ $(document).ready(function() {
 
 	});
 
+  $(document).on('submit', '#new-comment', function(event){
+    event.preventDefault();
+
+    var action = $(this).attr('action');
+    var method = $(this).attr('method');
+    var data = $(this).serialize();
+
+    $.ajax({
+      url: action,
+      type: method,
+      data: data,
+    })
+
+    .done(function(response) {
+      $('#container').replaceWith(response);
+    })
+  })
 
 
 });
