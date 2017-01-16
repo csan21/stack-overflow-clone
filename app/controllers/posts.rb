@@ -15,7 +15,8 @@ end
 get '/categories/:category_id/posts/:post_id' do
   @post = Post.find_by(id: params[:post_id])
   @category = Category.find_by(id: params[:category_id])
-
+  @post.post_views += 1
+  @post.save
   erb :'categories/posts/show'
 end
 
@@ -36,16 +37,9 @@ put '/categories/:category_id/posts/:post_id' do
 end
 
 delete '/categories/:category_id/posts/:post_id' do
-  if request.xhr?
-  else
-
-
-    Comment.destroy_all(post_id: params[:post_id])
-    Vote.destroy_all(votable_id: params[:post_id], votable_type: 'Post')
-    Post.destroy(id: params[:post_id])
-
-    redirect "/categories/#{@post.category_id}/posts"
-  end
+  @post = Post.find_by(id: params[:post_id])
+  @post.destroy
+  redirect "/"
 end
 
 get '/categories/:category_id/posts/:post_id/edit' do
