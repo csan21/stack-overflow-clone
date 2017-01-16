@@ -48,6 +48,16 @@ navbar {
   float: right;
 }
 
+#post-username a{
+  text-decoration: none;
+  color: black;
+}
+
+#post-username a:hover{
+  text-decoration: none;
+  color: blue;
+}
+
 #question {
   font-size: 20px;
   padding-right: 10px;
@@ -150,6 +160,7 @@ navbar {
 
 .author-home a:hover {
   font-size: 12px;
+  color: blue !important;
 }
 
 * {

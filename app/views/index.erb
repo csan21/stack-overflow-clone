@@ -30,7 +30,7 @@
 
   <div class="row">&nbsp;</div>
 
-
+<div id="questions-homepage">
     <% @posts.each do |post| %>
     <div class="row questions-home">
       <div class="col-md-3">
@@ -59,10 +59,11 @@
       </div>
       <div class="col-md-9 questions-title">
         <a href="/categories/<%= post.category_id %>/posts/<%= post.id %>"><%= post.title %></a>
-        <span class="post-date-home">posted: 2 days ago</span>
+        <span class="post-date-home">posted: today</span>
         |
         <span class="author-home"><a href="/profile/<%= post.author.id %>">author: <%= post.author.username %></a></span>
       </div>
     </div>
     <% end %>
+  </div>
 </div>
