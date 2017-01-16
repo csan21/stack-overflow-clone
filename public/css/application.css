@@ -102,6 +102,11 @@ navbar {
   display: inline;
 }
 
+#comment-form, #comment-body {
+  width: 500px;
+  display: inline;
+}
+
 #select-lang {
   width: 200px;
   border: 1px solid #606060;

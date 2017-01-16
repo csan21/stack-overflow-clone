@@ -2,7 +2,10 @@
 
 <% erb :_errors %>
 
-<form action="/posts/<%= @post.id %>/comments" method="POST">
-  <input type="textarea" name="comment[comment_body]" placeholder="Comment here">
+<form id="comment-form" action="/posts/<%= @post.id %>/comments" method="POST">
+<div class="comment-box">
+  <textarea form="comment-form" id="comment-body" name="comment[comment_body]" placeholder="Comment here" rows="3"></textarea>
+</div>
+  <input type="hidden" name="comment[commenter_id]" value="<%= current_user.id %>">
   <input type="submit">
 </form>
